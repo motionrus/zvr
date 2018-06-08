@@ -12,8 +12,8 @@ $ pip install -r requirements.txt
 
 ### Running app
 ```sh
-$ FLASK_APP = start.py
-$ FLASK_DEBUG = 0
+$ export FLASK_APP = start.py
+$ export FLASK_DEBUG = 0
 $ flask run
 ```
 

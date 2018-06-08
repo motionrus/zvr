@@ -3,7 +3,7 @@ from flask import Flask, request, render_template
 app = Flask(__name__)
 
 
-@app.route("/generate", methods=('GET', 'POST'))
+@app.route("/", methods=('GET', 'POST'))
 def hello():
     error = 'введите валидный URL'
     if request.method == 'POST':
