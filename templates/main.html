@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Render ZVR</title>
+</head>
+<body>
+    <form action="/" method="POST">
+        <p><input type="url" name="url"></p>
+        <button>кнопка</button>
+    </form>
+    {% if text %}
+        <pre>{{ text }}</pre>
+    {% endif %}
+</body>
+</html>
