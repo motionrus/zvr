@@ -10,12 +10,13 @@
         <button>кнопка</button>
     </form>
     {% if text %}
+    <div>
     	<div id="x_divtagdefaultwrapper" dir="ltr" style="font-size:12pt; color:#000000; font-family:Calibri,Arial,Helvetica,sans-serif">
         <pre>{{ text }}</pre>
     	</div>
-    {% endif %}
+    
     <pre style="margin-bottom:14pt;">--------------------------------------------------------
-</pre>
+	</pre>
 
 <div style="font-family:Calibri,Arial,Helvetica,sans-serif; color:rgb(33,33,33); font-size:15px; margin:0px"><font face="Times New Roman,serif" size="3"><span style="font-size:12pt"><font face="Courier New" color="#212121"><span style="background-color:rgb(247,247,247)"><b>Предоставляемый сервис</b></span></font><font face="Courier New" color="#212121">:&nbsp;Телефония / ПДПГИ</font></span></font></div>
 
@@ -175,6 +176,8 @@
 </font>
 </div>
 </pre>
+</div>
+	{% endif %}
 
 </body>
 </html>
