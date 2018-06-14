@@ -26,6 +26,7 @@ def parse_func(text):
 
     if not table:
         return 'таблица ЗВР не найдена'
+    result = 'ipres {}\n\n\n'.format(soup.find('span', attrs={'class', 'bigBold'}).string)
     for i in table.find_all('tr'):
         param = i.findAll('td')
         for t in TEMPLATE:
