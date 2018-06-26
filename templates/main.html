@@ -11,8 +11,19 @@
         <p><input type="url" name="url"></p>
         <button>кнопка</button>
     </form>
+    {% if error %}
+    <p>{{ error }}</p>
+    {% endif %}
     {% if text %}
     {% if email %}
+    <div>
+        <p>При формировании ipres на что стоит обратить внимание:<br>
+        1. Убедитесь что адрес места установки находится в теме письма<br>
+        2. Убедитесь что в теме письма указан Вид работ (Отключение/Подключение сервиса ПДГИ)<br>
+        3. В Копии должны быть адреса инсталлятора и Менеджера <br>
+        </p>
+        <H2>Генерация отчета:</H2>
+    </div>
     <div>
         <br>
         <table>
@@ -32,7 +43,6 @@
 
         </table>
     </div>
-    {% endif %}
     <div>
     	<div id="x_divtagdefaultwrapper" dir="ltr" style="font-size:12pt; color:#000000; font-family:Calibri,Arial,Helvetica,sans-serif">
         <pre>{{ text }}</pre>
@@ -200,6 +210,7 @@
 </div>
 </pre>
 </div>
+    {% endif %}
 	{% endif %}
 
 </body>
