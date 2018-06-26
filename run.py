@@ -1,5 +1,5 @@
 from bs4 import BeautifulSoup
-import requests
+import requests, re
 from config import *
 
 
@@ -17,6 +17,9 @@ def main_func(url):
 
 
 def parse_func(text):
+    """
+    from the template it looks for all values
+    """
     if text == 'Ошибка соединения':
         return text
     result = ''
@@ -29,13 +32,41 @@ def parse_func(text):
     result = 'ipres {}\n\n\n'.format(soup.find('span', attrs={'class', 'bigBold'}).string)
     for i in table.find_all('tr'):
         param = i.findAll('td')
+        join_params = ' '.join(param[0].strings)
         for t in TEMPLATE:
-            if param[0].string == t.strip():
+            if join_params and join_params.startswith(t.strip()):
                 result += '{}{}\n'.format(t, param[1].string or '')
+    return result
 
+
+def grep_all_email(text):
+    """ find list email address"""
+    return re.findall('[\w|\.]+@\w+\.\w+', text)
+
+
+def grep_email(text):
+    """ find email installer and manager and return dict"""
+    if text == 'Ошибка соединения':
+        return text
+    fields = EMAIL_TEMPLATE
+    html_doc = text
+    result = dict()
+    soup = BeautifulSoup(html_doc, 'html.parser')
+    email_finder = soup.findAll('td', text=fields)
+    if email_finder:
+        for email in email_finder:
+            parent = email.find_parent()
+            key_email = parent('td')[0].string
+            value_email = parent('td')[1].string
+            get_email = ', '.join(grep_all_email(value_email))
+            result[key_email] = get_email
     return result
 
 
 if __name__ == '__main__':
-    get_zvr = main_func(url=URL)
-    parse_func(get_zvr)
+    '''get_zvr = main_func(url=URL)
+    parse_func(get_zvr)'''
+    with open('zvr.html', 'r') as f:
+        file = f.read()
+        grep_email(file)
+

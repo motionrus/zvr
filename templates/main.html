@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Render ZVR</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+
 </head>
 <body>
     <form action="/" method="POST">
@@ -10,6 +12,27 @@
         <button>кнопка</button>
     </form>
     {% if text %}
+    {% if email %}
+    <div>
+        <br>
+        <table>
+
+        <tr>
+            <td>Контакты</td>
+            {% for key, value in email.items() %}
+            <td>{{ key }}</td>
+            {% endfor %}
+        </tr>
+        <tr>
+            <td>E-mail</td>
+            {% for key, value in email.items() %}
+            <td>{{ value }};</td>
+            {% endfor %}
+        </tr>
+
+        </table>
+    </div>
+    {% endif %}
     <div>
     	<div id="x_divtagdefaultwrapper" dir="ltr" style="font-size:12pt; color:#000000; font-family:Calibri,Arial,Helvetica,sans-serif">
         <pre>{{ text }}</pre>
