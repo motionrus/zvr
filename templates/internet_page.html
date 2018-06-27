@@ -1,0 +1,200 @@
+{% extends 'base.html' %} {% block content %}
+
+<form action="/" method="POST">
+	<p>
+		<input type="url" name="url">
+		</p>
+		<button>кнопка</button>
+	</form>
+
+{% if error %}
+
+	<p>{{ error }}</p>
+{% endif %}
+    {% if text %}
+        {% if email %}
+
+	<div>
+		<p>При формировании ipres на что стоит обратить внимание:
+			<br> 1. Убедитесь что адрес места установки находится в теме письма
+				<br> 2. Убедитесь что в теме письма указан Вид работ (Отключение/Подключение сервиса ПДГИ)
+					<br> 3. В Копии должны быть адреса инсталлятора
+        и Менеджера
+						<br>
+						</p>
+						<H2>Генерация отчета:</H2>
+					</div>
+						<div>
+							<br>
+								<table>
+									<tr>
+										<td>В копию необходимо добавить</td>
+            {% for key, value in email.items() %}
+
+										<td>{{ key }}</td>
+            {% endfor %}
+
+									</tr>
+									<tr>
+										<td>E-mail</td>
+            {% for key, value in email.items() %}
+
+										<td>{{ value }};</td>
+            {% endfor %}
+
+									</tr>
+								</table>
+							</div>
+							<div>
+								<div id="x_divtagdefaultwrapper" dir="ltr" style="font-size:12pt; color:#000000; font-family:Calibri,Arial,Helvetica,sans-serif">
+									<pre>{{ text }}</pre>
+								</div>
+								<pre style="margin-bottom:14pt;">--------------------------------------------------------
+	</pre>
+								<div style="font-family:Calibri,Arial,Helvetica,sans-serif; color:rgb(33,33,33); font-size:15px; margin:0px">
+									<font face="Times New Roman,serif" size="3">
+										<span style="font-size:12pt">
+											<font face="Courier New" color="#212121">
+												<span style="background-color:rgb(247,247,247)">
+													<b>Предоставляемый сервис</b>
+												</span>
+											</font>
+											<font face="Courier New" color="#212121">:&nbsp;Интернет </font>
+										</span>
+									</font>
+								</div>
+
+
+<div>
+	<font face="Calibri,Arial,Helvetica,sans-serif" size="2" color="#212121">
+		<span style="font-size:15px;">
+			<div style="margin:0;">
+				<font face="Courier New" size="3" color="black">
+					<span style="font-size:12pt;">&nbsp;</span>
+				</font>
+			</div>
+			<table width="1390" border="1" cellspacing="0" cellpadding="0" style="border-collapse:collapse;width:834pt;">
+				<tbody>
+					<tr>
+						<td style="padding:3.75pt;">
+							<div align="right" style="margin:0;">
+								<font face="Courier New" size="3" color="#212121">
+									<span style="font-size:12pt;">VLAN(VRF)</span>
+								</font>
+							</div>
+						</td>
+						<td style="padding:3.75pt;">
+							<div style="margin:0;">
+								<font face="Courier New" size="3" color="#212121">
+									<span style="font-size:12pt;">790</span>
+								</font>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td style="padding:3.75pt;">
+							<div align="right" style="margin:0;">
+								<font face="Courier New" size="3" color="#212121">
+									<span style="font-size:12pt;">Static</span>
+								</font>
+							</div>
+						</td>
+						<td style="padding:3.75pt;">
+							<div style="margin:0;">
+								<font face="Courier New" size="3" color="#212121">
+									<span style="font-size:12pt;">нет</span>
+								</font>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td style="padding:3.75pt;">
+							<div align="right" style="margin:0;">
+								<font face="Courier New" size="3" color="#212121">
+									<span style="font-size:12pt;">Сеть</span>
+								</font>
+							</div>
+						</td>
+						<td style="padding:3.75pt;">
+							<div style="margin:0;">
+								<font face="Courier New" size="3" color="#212121">
+									<span style="font-size:12pt;">10.162.72.0/29 (255.255.255.248)</span>
+								</font>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td style="padding:3.75pt;">
+							<div align="right" style="margin:0;">
+								<font face="Courier New" size="3" color="#212121">
+									<span style="font-size:12pt;">Модем</span>
+								</font>
+							</div>
+						</td>
+						<td style="padding:3.75pt;">
+							<div style="margin:0;">
+								<font face="Courier New" size="3" color="#212121">
+									<span style="font-size:12pt;">10.162.72.1</span>
+								</font>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td style="padding:3.75pt;">
+							<div align="right" style="margin:0;">
+								<font face="Courier New" size="3" color="#212121">
+									<span style="font-size:12pt;">Клиент</span>
+								</font>
+							</div>
+						</td>
+						<td style="padding:3.75pt;">
+							<div style="margin:0;">
+								<font face="Courier New" size="3" color="#212121">
+									<span style="font-size:12pt;">10.162.72.2-10.162.72.6</span>
+								</font>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td style="padding:3.75pt;">
+							<div align="right" style="margin:0;">
+								<font face="Courier New" size="3" color="#212121">
+									<span style="font-size:12pt;">Биллингуем на "SPB-PE01"</span>
+								</font>
+							</div>
+						</td>
+						<td style="padding:3.75pt;">
+							<div style="margin:0;">
+								<font face="Courier New" size="3" color="#212121">
+									<span style="font-size:12pt;">сеть 10.162.72.1/29</span>
+								</font>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td style="padding:3.75pt;">
+							<div align="right" style="margin:0;">
+								<font face="Courier New" size="3" color="#212121">
+									<span style="font-size:12pt;">вход/выход snmp В сторону Хаба</span>
+								</font>
+							</div>
+						</td>
+						<td style="padding:3.75pt;">
+							<div style="margin:0;">
+								<font face="Courier New" size="3" color="#212121">
+									<span style="font-size:12pt;">Interface = GigabitEthernet0/1.790, Ifindex = 332</span>
+								</font>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</span>
+	</font>
+</div>
+    {% endif %}
+	{% endif %}
+
+</body>
+</html>
+{% endblock %}

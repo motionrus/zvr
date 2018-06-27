@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Render ZVR</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body>
+    <header>
+        <a href="/">Интернет</a>
+        <a href="phone">Телефония</a>
+    </header>
+    {% block content %}
+    {% endblock %}
+</body>

@@ -1,4 +1,4 @@
 config.py
-zvr.html
+zvr*.html
 __pycache__/*
 .idea/*

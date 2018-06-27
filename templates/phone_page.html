@@ -1,16 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Render ZVR</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+{% extends 'base.html' %}
 
-</head>
-<body>
-    <form action="/" method="POST">
+
+{% block content %}
+    <form action="/phone" method="POST">
         <p><input type="url" name="url"></p>
         <button>кнопка</button>
     </form>
+
     {% if error %}
     <p>{{ error }}</p>
     {% endif %}
@@ -29,7 +25,7 @@
         <table>
 
         <tr>
-            <td>Контакты</td>
+            <td>В копию необходимо добавить</td>
             {% for key, value in email.items() %}
             <td>{{ key }}</td>
             {% endfor %}
@@ -215,3 +211,4 @@
 
 </body>
 </html>
+{% endblock %}
