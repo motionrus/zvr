@@ -42,3 +42,13 @@ def internet():
     return render_template('internet_page.html')
 
 
+@app.route("/example", methods=('GET', 'POST'))
+def example():
+    with open('zvr.html', 'r') as f:
+        html = f.read()
+        # print(html)
+        text = get_forms_internet(html)
+        email = grep_email(html)
+
+    return render_template('internet_page.html', email=email, text=text)
+

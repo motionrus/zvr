@@ -3,13 +3,26 @@ import requests, re
 from config import *
 
 
+def site_name(url):
+    """
+    parse full url and returns the name of the site or default name
+    """
+    default_name = 'helpdesk.noc.dozortel.ru'
+    site_split = url.split('/')
+    for name in site_split:
+        if name.endswith('.ru'):
+            return name
+    return default_name
+
+
 def main_func(url):
     """
     tries to connect and log in. Returning the error or text keys
     """
     from requests.exceptions import ConnectionError, InvalidSchema
     s = requests.Session()
-    s.post(URL_AUTH, data={'username': USERNAME, 'password': PASSWORD, 'refer_url': ''}, headers=HEADERS)
+    url_auth = 'http://' + site_name(url) + '/' + URL_AUTH
+    s.post(url_auth, data={'username': USERNAME, 'password': PASSWORD, 'refer_url': ''}, headers=HEADERS)
     try:
         r = s.get(url)
     except ConnectionError:
@@ -69,6 +82,8 @@ def grep_email(text):
             key_email = parent('td')[0].string
             value_email = parent('td')[1].string
             get_email = '; '.join(grep_all_email(value_email))
+            if not get_email:
+                continue
             result[key_email] = get_email
     return result
 
@@ -115,7 +130,10 @@ def get_forms_internet(text):
 
 
 if __name__ == '__main__':
-    '''get_zvr = main_func(url=URL)
+
+    '''url = 'http://' + site_name(URL) + '/' + URL
+    get_zvr = main_func(url=url)
+    
     parse_func(get_zvr)'''
     with open('zvr2.html', 'r') as f:
         file = f.read()

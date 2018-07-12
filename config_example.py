@@ -1,5 +1,5 @@
 URL = 'http://helpdesk.noc.dozortel.ru/cgi-bin/request_view.pl?woMode=viewWO&woID=46812'
-URL_AUTH = 'http://helpdesk.noc.dozortel.ru/cgi-bin/action.pl'
+URL_AUTH = 'cgi-bin/action.pl'
 HEADERS = {'Content-Type': 'application/x-www-form-urlencoded'}
 USERNAME = 'username'
 PASSWORD = 'password'
